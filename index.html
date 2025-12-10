@@ -3,11 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Sign-up Form</title>
+    <style>
+        /* Basic Styling to match the image */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff; /* White form background */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Max width for better form presentation */
+            width: 100%;
+        }
+
+        h2 {
+            text-align: left;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect overall width */
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        /* Styling for Radio Buttons and Checkboxes */
+        .radio-group,
+        .checkbox-group {
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal; /* Labels inside the group don't need to be bold */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-group input[type="radio"],
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        /* Styling for the Select/Dropdown */
+        select {
+            appearance: none; /* Removes default dropdown arrow in some browsers */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="292.4" height="292.4" viewBox="0 0 292.4 292.4"><path fill="#000" d="M287 197.8L146.2 57 5.4 197.8l-5.4 5.4 5.4 5.4 140.8 140.8 140.8-140.8 5.4-5.4-5.4-5.4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            justify-content: flex-start; /* Aligns buttons to the left */
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background-color: #007bff; /* Blue */
+            color: white;
+        }
+
+        .reset-btn {
+            background-color: #6c757d; /* Grey */
+            color: white;
+        }
+        
+        .required-note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p> This is a sample HTML document. </p>
-    
+
+    <div class="container">
+        <h2>Student Sign-up Form</h2>
+        <form action="#" method="POST">
+            
+            <div class="form-group">
+                <label for="full_name">Full name</label>
+                <input type="text" id="full_name" name="full_name" placeholder="e.g. Priya Sharma" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Your age" required min="1">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Create password</label>
+                <input type="password" id="password" name="password" placeholder="At least 6 characters" required minlength="6">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="female" required>
+                        Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="male">
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="other">
+                        Other
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Interests (choose all that apply)</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="interests" value="coding">
+                        Coding
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interests" value="drawing">
+                        Drawing
+                    </label>
+                    <label>
+                        <input type="checkbox" name="interests" value="sports">
+                        Sports
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="grade">Class / Grade</label>
+                <select id="grade" name="grade" required>
+                    <option value="" disabled selected>Select grade</option>
+                    <option value="5th">5th Grade</option>
+                    <option value="6th">6th Grade</option>
+                    <option value="7th">7th Grade</option>
+                    <option value="8th">8th Grade</option>
+                    <option value="9th">9th Grade</option>
+                    <option value="10th">10th Grade</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="about">Tell us (one line) about yourself</label>
+                <textarea id="about" name="about" placeholder="I love science..."></textarea>
+            </div>
+            
+            <p class="required-note">Fields marked with * are required.</p>
+
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+            
+        </form>
+    </div>
+
 </body>
 </html>
